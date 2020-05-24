@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include "TStack.h"
-//Здесь было написано #include "TText.h", программа не компилировалась и выдавала непонятные ошибки, почему?
+//Здесь было написано #include "TText.h", программа не компилировалась и выдавала непонятные ошибки
 #include <fstream>
 #include <iostream>
 using namespace std;
@@ -31,7 +31,7 @@ public:
 	static void IntMemSystem(int size);
 	void * operator new(size_t size);
 	void operator delete(void *pM);
-	static void PrintFreeLink();
+	static void PrintFreeLink(int add);   // Программа пропускает строчку кода, где вызывается данная функция даже в отладке если не передавать никаких параметров
 	static void MemCleaner(TText &txt);
 	friend class TText;
 };

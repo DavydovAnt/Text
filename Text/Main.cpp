@@ -68,7 +68,10 @@ void Menu(TText& txt) {
 			}
 			count = 1; txt.Reset();
 			cout << "Number pCurr " << count << endl; break;
-		case ESC: return;
+		case ESC:
+			TTextLink::MemCleaner;
+			TTextLink::PrintFreeLink(10);
+			return;
 		default:
 			break;
 		}
@@ -86,5 +89,7 @@ void main() {
 	}
 	Menu(txt);
 	txt.Write("2.txt");
+	_getch();
 	exit(0);
+	
 }

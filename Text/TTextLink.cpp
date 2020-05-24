@@ -2,6 +2,7 @@
 #include "TText.h"
 
 void TTextLink::IntMemSystem(int size) {
+
 	MemHeader.pFirst = (TTextLink*)new char[sizeof(TTextLink)*size];
 	MemHeader.pFree = MemHeader.pFirst;
 	MemHeader.pLast = MemHeader.pFirst + (size - 1);
@@ -23,8 +24,8 @@ void  TTextLink::operator delete(void *pM) {
 	pLink->pNext = MemHeader.pFree;
 	MemHeader.pFree = pLink;
 }
- void TTextLink::PrintFreeLink() {
-	cout << "List of free links" << endl;
+void TTextLink::PrintFreeLink(int add) {              // Программа пропускает строчку кода, где вызывается данная функция даже в отладке если не передавать никаких параметров
+	cout << endl << "List of free links" << endl;
 	for (TTextLink *pLink = MemHeader.pFree; pLink != NULL; pLink = pLink->pNext) {
 		cout << pLink->str << endl;
 	}
